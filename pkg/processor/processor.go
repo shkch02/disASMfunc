@@ -85,7 +85,7 @@ func BuildSyscallMap(libcAnalyzer *analyzer.ELFAnalyzer, uniqueWrappers map[stri
 			// [수정] analyzer. -> syscalls.
 			if syscalls.IsTracepointAvailable(foundKernelName) {
 				redisMap[wrapperName] = foundKernelName
-				log.Printf("  [매핑] %s $\to$ %s (Tracepoint: ✓)\n", wrapperName, foundKernelName)
+				//log.Printf("  [매핑] %s $\to$ %s (Tracepoint: ✓)\n", wrapperName, foundKernelName)
 			} else {
 				log.Printf("  [정보] %s $\to$ %s (Tracepoint: ✗ - 필터링됨)\n", wrapperName, foundKernelName)
 			}
