@@ -85,6 +85,7 @@ func BuildSyscallMap(libcAnalyzer *analyzer.ELFAnalyzer, uniqueWrappers map[stri
 			// [수정] analyzer. -> syscalls.
 			if syscalls.IsTracepointAvailable(foundKernelName) {
 				redisMap[wrapperName] = foundKernelName
+				//*********************************************************disASMfunc 에서 성공 제외하고 실패 패턴만 알고리즘 수정합시다 ***************
 				//log.Printf("  [매핑] %s $\to$ %s (Tracepoint: ✓)\n", wrapperName, foundKernelName)
 			} else {
 				log.Printf("  [정보] %s $\to$ %s (Tracepoint: ✗ - 필터링됨)\n", wrapperName, foundKernelName)

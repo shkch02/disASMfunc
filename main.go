@@ -18,14 +18,15 @@ func main() {
 	defer libcAnalyzer.Close()
 
 	// disASMfunc에서 쓰려고 대문자로 바꿈, 원래 분석기에선 소문자임
-	for i, uniqueWrappers := range syscalls.KernelSyscallNameMap { //키값인 넘버는 _로 무시
-		fmt.Printf("%d Syscall name: %s\n", i, uniqueWrappers)
-	}
+	//for i, uniqueWrappers := range syscalls.KernelSyscallNameMap { //키값인 넘버는 _로 무시
+	//	fmt.Printf("%d Syscall name: %s\n", i, uniqueWrappers)
+	//}
 
 	for _, syscalls := range syscalls.KernelSyscallNameMap { //키값인 넘버는 _로 무시
 		uniqueWrappers := map[string]struct{}{syscalls: {}}
 
-		redisMap := processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers)
-		fmt.Println(redisMap)
+		/*redisMap :=*/
+		processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers)
+		//fmt.Println(redisMap)
 	}
 }
