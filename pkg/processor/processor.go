@@ -3,7 +3,6 @@ package processor
 import (
 	"disASMfunc/pkg/analyzer"
 	"disASMfunc/pkg/syscalls" // [신규] syscalls 패키지 임포트
-	"fmt"
 	"log"
 	"strings"
 )
@@ -32,10 +31,12 @@ func BuildSyscallMap(libcAnalyzer *analyzer.ELFAnalyzer, uniqueWrappers map[stri
 		// 2. 래퍼에서 유효한 커널 시스템 콜 이름 찾기
 		foundKernelName := ""
 		if len(syscallPatterns) > 0 {
-			fmt.Printf("  [성공] '%s' 래퍼에서 %d개의 'syscall' 패턴 발견:\n", wrapperName, len(syscallPatterns))
+			//*********************************************************disASMfunc 에서 성공 제외하고 실패 패턴만 알고리즘 수정합시다 ***************
+			//fmt.Printf("  [성공] '%s' 래퍼에서 %d개의 'syscall' 패턴 발견:\n", wrapperName, len(syscallPatterns))
 
 			for _, pattern := range syscallPatterns {
-				fmt.Printf("    - 주소: 0x%x $\to$ 커널 Syscall #%d (0x%x)\n", pattern.Address, pattern.Number, pattern.Number)
+				//*********************************************************disASMfunc 에서 성공 제외하고 실패 패턴만 알고리즘 수정합시다 ***************
+				//fmt.Printf("    - 주소: 0x%x $\to$ 커널 Syscall #%d (0x%x)\n", pattern.Address, pattern.Number, pattern.Number)
 				// 첫 번째로 유효한(-1이 아닌) 시스템 콜 번호를 찾으면 이름으로 변환
 				if foundKernelName == "" && pattern.Number != -1 {
 					// [수정] analyzer. -> syscalls.
