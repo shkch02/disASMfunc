@@ -60,7 +60,7 @@ func BuildSyscallMap(libcAnalyzer *analyzer.ELFAnalyzer, uniqueWrappers map[stri
 				log.Printf("  [시도] '%s'로 재시도...\n", newName)
 
 				syscallPatterns, err = libcAnalyzer.FindKernelSyscallPatterns(newName)
-				//**********************************************************disASMfunc 에서 성공 제외하고 실패 패턴만 알고리즘 수정합시다 ***************
+				//*********************************************************disASMfunc 에서 성공 제외하고 실패 패턴만 알고리즘 수정합시다 ***************
 				if err == nil && len(syscallPatterns) > 0 {
 					//fmt.Printf("  [성공] '%s' (%s) 래퍼에서 %d개의 'syscall' 패턴 발견:\n", newName, wrapperName, len(syscallPatterns))
 					for _, pattern := range syscallPatterns {
