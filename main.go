@@ -28,5 +28,7 @@ func main() {
 		/*redisMap :=*/
 		processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers)
 		//fmt.Println(redisMap)
+
 	}
+	fmt.Println("objdump -d ./libc.so.6 | grep 시스템콜 ")
 }
