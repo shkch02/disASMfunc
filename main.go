@@ -22,7 +22,7 @@ func main() {
 	//}
 
 	//for _, syscalls := range syscalls.KernelSyscallNameMap { //2:open
-	uniqueWrappers := "open" //map[string]struct{}{syscalls: {}}
+	uniqueWrappers := "2:open" //map[string]struct{}{syscalls: {}}
 
 	/*redisMap :=*/
 	processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers) //라이브러리 바이너리, 시스템콜 문자열 추출 not a map
