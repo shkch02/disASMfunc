@@ -84,9 +84,6 @@ func (a *ELFAnalyzer) FindKernelSyscallPatterns(symbolName string) ([]asmanalysi
 		return nil, fmt.Errorf("동적 심볼 읽기 실패: %w", err)
 	}
 
-	for _, sym := range symbols {
-		fmt.Println(sym.Name)
-	}
 	// sym.name 구조체 내용들:
 	/*
 		openpty
@@ -99,7 +96,7 @@ func (a *ELFAnalyzer) FindKernelSyscallPatterns(symbolName string) ([]asmanalysi
 	// libsoc.6 내에서 symbolName과 일치하는 심볼을 찾음
 	var targetSymbol *elf.Symbol
 	for i, sym := range symbols {
-		if sym.Name == symbolName {
+		if sym.Name == symbolName { //symbolName : 입력받은 래퍼 시스템콜
 			targetSymbol = &symbols[i]
 			break
 		}
