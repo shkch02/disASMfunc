@@ -77,11 +77,14 @@ func (a *ELFAnalyzer) ExtractAsmCode() ([]gapstone.Instruction, uint64, error) {
 
 // libc.so.6의 동적 심볼 테이블에서 symbolName을 찾습니다.
 func (a *ELFAnalyzer) FindKernelSyscallPatterns(symbolName string) ([]asmanalysis.SyscallInfo, error) {
+
 	// 1. libc.so.6의 동적 심볼 테이블에서 symbolName을 찾습니다.
 	symbols, err := a.elfFile.DynamicSymbols()
 	if err != nil {
 		return nil, fmt.Errorf("동적 심볼 읽기 실패: %w", err)
 	}
+
+	fmt.Println(symbols)
 
 	// libsoc.6 내에서 symbolName과 일치하는 심볼을 찾음
 	var targetSymbol *elf.Symbol
