@@ -84,7 +84,9 @@ func (a *ELFAnalyzer) FindKernelSyscallPatterns(symbolName string) ([]asmanalysi
 		return nil, fmt.Errorf("동적 심볼 읽기 실패: %w", err)
 	}
 
-	fmt.Println(symbols)
+	for _, sym := range symbols {
+		fmt.Println(sym.Name)
+	}
 
 	// libsoc.6 내에서 symbolName과 일치하는 심볼을 찾음
 	var targetSymbol *elf.Symbol
