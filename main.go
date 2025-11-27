@@ -3,6 +3,7 @@ package main
 import (
 	"disASMfunc/pkg/analyzer"
 	"disASMfunc/pkg/processor"
+	"disASMfunc/pkg/syscalls"
 	"fmt"
 	"log"
 )
@@ -22,10 +23,8 @@ func main() {
 	//}
 
 	//for _, syscalls := range syscalls.KernelSyscallNameMap { //2:open
-	//map[string]struct{}{syscalls: {}}
-
 	uniqueWrappers := map[string]struct{}{
-		"2:open": {},
+		syscalls.KernelSyscallNameMap[2]: {},
 	}
 
 	/*redisMap :=*/
