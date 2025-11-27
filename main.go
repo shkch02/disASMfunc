@@ -22,13 +22,13 @@ func main() {
 	//	fmt.Printf("%d Syscall name: %s\n", i, uniqueWrappers)
 	//}
 
-	for _, syscalls := range syscalls.KernelSyscallNameMap { //키값인 넘버는 _로 무시
-		uniqueWrappers := map[string]struct{}{syscalls: {}}
+	for _, syscalls := range syscalls.KernelSyscallNameMap { //2:open
+		uniqueWrappers :="open" //map[string]struct{}{syscalls: {}}
 
 		/*redisMap :=*/
-		processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers)
+		processor.BuildSyscallMap(libcAnalyzer, uniqueWrappers) //라이브러리 바이너리, 시스템콜 문자열 추출 not a map
 		//fmt.Println(redisMap)
 
-	}
+	//}
 	fmt.Println("objdump -d ./libc.so.6 | grep 시스템콜 ")
 }

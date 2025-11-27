@@ -87,6 +87,14 @@ func (a *ELFAnalyzer) FindKernelSyscallPatterns(symbolName string) ([]asmanalysi
 	for _, sym := range symbols {
 		fmt.Println(sym.Name)
 	}
+	// sym.name 구조체 내용들:
+	/*
+		openpty
+		openpty
+		freopen64
+		__open64
+		open64
+	*/
 
 	// libsoc.6 내에서 symbolName과 일치하는 심볼을 찾음
 	var targetSymbol *elf.Symbol
