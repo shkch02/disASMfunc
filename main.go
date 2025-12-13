@@ -35,7 +35,7 @@ func main() {
 		// 4. 결과 출력
 		if kernelSyscall, ok := redisMap[syscallName]; ok {
 			// 성공한 경우, processor.go 내부에서 이미 상세 로그를 출력합니다.
-			fmt.Printf("  [성공] %s (래퍼) -> %s (커널)\n", syscallName, kernelSyscall)
+			fmt.Printf("  [성공] %s (래퍼) -> %s (커널)", syscallName, kernelSyscall)
 		} else {
 			// 실패한 경우, 이전에 기억하시는 '매칭실패' 메시지를 출력합니다.
 			fmt.Printf("  [실패] %s (래퍼) -> 매핑 실패 (심볼 없음/syscall 명령어 없음)\n", syscallName)
