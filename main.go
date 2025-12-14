@@ -6,7 +6,8 @@ import (
 	"disASMfunc/pkg/syscalls"
 	"fmt"
 	"log"
-	"strings" // 새로 추가: 결과를 쉼표로 연결하기 위해 사용
+	"sort"
+	"strings"
 )
 
 func main() {
@@ -57,6 +58,7 @@ func main() {
 
 	// 최종 결과 출력 (실패 목록)
 	fmt.Println("\n❌ 실패한 시스템콜:")
+	sort.Strings(failedSyscalls)
 	fmt.Printf("실패한 시스템콜 (%d개):\n", len(failedSyscalls))
 	fmt.Printf("%s\n", strings.Join(failedSyscalls, ", "))
 	fmt.Println("========================================")
